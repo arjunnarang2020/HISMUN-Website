@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HIS MUN 2025</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: #0e0f11;
+      color: #f5f5f5;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(15, 15, 15, 0.85);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 60px;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    header h1 {
+      font-weight: 600;
+      font-size: 1.6em;
+      background: linear-gradient(90deg, #00bcd4, #4f9aff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 400;
+      position: relative;
+      transition: color 0.3s;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background: #00bcd4;
+      transition: width 0.3s;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .register-btn a {
+      background: linear-gradient(90deg, #00bcd4, #4f9aff);
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 15px rgba(79, 154, 255, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .register-btn a::after {
+      display: none;
+    }
+
+    .register-btn a:hover {
+      transform: translateY(-2px);
+      animation: smoothPulse 1.8s infinite ease-in-out;
+    }
+
+    @keyframes smoothPulse {
+      0% {
+        box-shadow: 0 0 10px rgba(79, 154, 255, 0.3),
+                    0 0 20px rgba(79, 154, 255, 0.2);
+      }
+      50% {
+        box-shadow: 0 0 25px rgba(79, 154, 255, 0.8),
+                    0 0 45px rgba(79, 154, 255, 0.6);
+      }
+      100% {
+        box-shadow: 0 0 10px rgba(79, 154, 255, 0.3),
+                    0 0 20px rgba(79, 154, 255, 0.2);
+      }
+    }
+
+    .hero {
+      height: 100vh;
+      background: linear-gradient(135deg, #0a0f1c, #001f3f);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    .hero h1 {
+      font-size: 4em;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    .hero h2 {
+      font-size: 3.2em;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+
+    </style>
+</head>
+<body>
+  <header>
+    <h1>Welcome to Harvest's 2025 MUN</h1>
+    <div class="menu-toggle" id="menu-toggle">
+      <span></span><span></span><span></span>
+    </div>
+    <nav>
+      <ul id="menu">
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="index.html#committees">Committees</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <!-- ✅ Standout Registration Button -->
+        <li class="register-btn">
+          <a href="https://docs.google.com/document/d/1ALvlawvOBQtpu9ZYa0bki2A7nvFqrixD4MSxKT0GVx8/edit?tab=t.0" target="_blank">
+            Register Now
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  
+  <section class="hero">
+    <h1>UNSC</h1>
+    <h2>United Nations Security Council</h2>
+
+  </section>
+</body>
+</html>
