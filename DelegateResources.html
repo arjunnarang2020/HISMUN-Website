@@ -65,9 +65,21 @@
     .hero { height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; text-align: center; overflow: hidden; }
     .hero::before {
       content: ""; position: absolute; inset: 0;
-      background: url('resourcesbg.jpeg') center/cover no-repeat;
+      background: url('') center/cover no-repeat;
       opacity: 0.75; z-index: 0;
       filter: grayscale(43%);
+    }
+
+    .del-bg a{ 
+        background: linear-gradient(90deg, #ff1e1e, #b50000);
+        padding-left: 30px;
+        padding-bottom: 30px;
+        padding-top: 30px;
+        padding-right: 30px;
+        color: #fff; padding: 10px 20px; border-radius: 30px; font-weight: 600;
+        box-shadow: 0 0 15px rgba(255, 30, 30, 0.4);
+        transition: transform 0.3s, box-shadow 0.3s;
+        display: inline-block; margin: 10px;
     }
 
     .del-rsc a {
@@ -155,7 +167,6 @@
 
   <section class="hero">
     <h1>Delegate Resources</h1>
-    <p>Agenda: .</p>
   </section>
   
   <section>
@@ -200,15 +211,19 @@
 
     <section>
         <h2>Delegate Code of Conduct</h2>
-        <bg-btn class="bg-btn"><a href="https://docs.google.com/document/d/1X4J3Yk9gk1b0y8YH5Fv1cX4nUOa8FvZfX9Zz5z5z5z5/edit?usp=sharing" target="_blank">Background Guide</a></bg-btn>
+        <bg-btn class="bg-btn"><a href="" target="_blank">Delegate Code of Conduct</a></bg-btn>
     </section>
 
     <section>
+        <h2>Rules of Procedure</h2>
+        <bg-btn class="bg-btn"><a href="" target="_blank">Rules of Procedure</a></bg-btn>
+
+    <section>
         <h2>Background Guides</h2>
-        <bg-btn class="del-rsc"><a href="" target="_blank">UNSC Background Guide</a></bg-btn>
-        <bg-btn class="del-rsc"><a href="" target="_blank">DISEC Background Guide</a></bg-btn>
-        <bg-btn class="del-rsc"><a href="" target="_blank">HCC Background Guide</a></bg-btn>
-        <bg-btn class="del-rsc"><a href="" target="_blank">AIPPM Background Guide</a></bg-btn>
+        <bg-btn class="del-bg" centre-align><a href="https://docs.google.com/document/d/1QlUz2ky0hTAQKT_4BeFipvzVntK-Q6l00ObyO4K5gg0/edit?tab=t.0" target="_blank">UNSC Background Guide</a></bg-btn>
+        <bg-btn class="del-bg" centre-align><a href="" target="_blank">DISEC Background Guide</a></bg-btn>
+        <bg-btn class="del-bg" centre-align><a href="" target="_blank">HCC Background Guide</a></bg-btn>
+        <bg-btn class="del-bg" centre-align><a href="" target="_blank">AIPPM Background Guide</a></bg-btn>
     </section>
 
   <footer>© 2025 Harvest International MUN Conference</footer>
