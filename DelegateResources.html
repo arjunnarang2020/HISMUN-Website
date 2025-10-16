@@ -20,17 +20,19 @@
     header .logo {
       font-size: 1.8em; font-weight: 700;
       background: linear-gradient(90deg, #ff1e1e, #999);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
       letter-spacing: 1px;
     }
     nav ul { list-style: none; display: flex; gap: 30px; align-items: center; }
     nav ul li a {
       position: relative; font-weight: 500; padding: 5px 0;
-      text-decoration: none; /* Remove underline */
+      text-decoration: none;
       transition: color 0.3s;
     }
 
-    /* Registration button glow and pulse */
     .register-btn a {
       background: linear-gradient(90deg, #ff1e1e, #b50000);
       color: #fff; padding: 10px 22px; border-radius: 30px; font-weight: 600;
@@ -43,7 +45,7 @@
       box-shadow: 0 0 30px rgba(255, 30, 30, 0.7);
     }
 
-    /* Background Guide button */
+
     .bg-btn a {
       background: linear-gradient(90deg, #ff1e1e, #b50000);
       color: #fff; padding: 14px 28px; border-radius: 30px; font-weight: 600;
@@ -205,8 +207,17 @@
     </div>
 
     <section>
+        <div>
         <h2>Committee Matrix</h2>
         <bg-btn class="bg-btn"><a href="https://docs.google.com/spreadsheets/d/1sMbihyyDWwv_p3M8VlnLMLilQvN9BWY-DDwQ_P2qzAk/edit?usp=sharing" target="_blank">Committee Matrix</a></bg-btn>
+         
+        <h2>Background Guides</h2>
+        <bg-btn class="del-bg" centre-align><a href="https://docs.google.com/document/d/1QlUz2ky0hTAQKT_4BeFipvzVntK-Q6l00ObyO4K5gg0/edit?tab=t.0" target="_blank">UNSC Background Guide</a></bg-btn>
+        <bg-btn class="del-bg" centre-align><a href="" target="_blank">DISEC Background Guide</a></bg-btn>
+        <bg-btn class="del-bg" centre-align><a href="" target="_blank">HCC Background Guide</a></bg-btn>
+        <bg-btn class="del-bg" centre-align><a href="" target="_blank">AIPPM Background Guide</a></bg-btn>
+        </div>
+    </section>
     </section>
 
     <section>
@@ -217,15 +228,9 @@
     <section>
         <h2>Rules of Procedure</h2>
         <bg-btn class="bg-btn"><a href="" target="_blank">Rules of Procedure</a></bg-btn>
-
-    <section>
-        <h2>Background Guides</h2>
-        <bg-btn class="del-bg" centre-align><a href="https://docs.google.com/document/d/1QlUz2ky0hTAQKT_4BeFipvzVntK-Q6l00ObyO4K5gg0/edit?tab=t.0" target="_blank">UNSC Background Guide</a></bg-btn>
-        <bg-btn class="del-bg" centre-align><a href="" target="_blank">DISEC Background Guide</a></bg-btn>
-        <bg-btn class="del-bg" centre-align><a href="" target="_blank">HCC Background Guide</a></bg-btn>
-        <bg-btn class="del-bg" centre-align><a href="" target="_blank">AIPPM Background Guide</a></bg-btn>
     </section>
 
   <footer>© 2025 Harvest International MUN Conference</footer>
 </body>
 </html>
+/Sahil is gay/
