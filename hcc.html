@@ -7,30 +7,57 @@
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@0;1&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-    body { background: #000; color: #ddd; font-family: "Poppins", sans-serif; }
+    body { background: #000; color: #ddd; font-family: "Poppins", sans-serif; overflow-x: hidden; }
     a { text-decoration: none; color: inherit; }
 
-    header {  
+    .particles-container {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      pointer-events: none; z-index: 0; overflow: hidden;
+    }
+
+    .particle {
+      position: absolute;
+      width: 5px; height: 5px;
+      background: rgba(255, 50, 50, 0.15);
+      border-radius: 50%;
+      animation: floatParticle linear infinite;
+    }
+
+    @keyframes floatParticle {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-120vh) scale(0.5); opacity: 0; }
+    }
+
+    header {
       position: fixed; top: 0; left: 0; width: 100%;
       z-index: 1000; background: rgba(0,0,0,0.85);
       backdrop-filter: blur(10px); padding: 20px 60px;
       display: flex; justify-content: space-between; align-items: center;
       border-bottom: 1px solid rgba(255,255,255,0.1);
+      animation: slideDown 1.2s ease forwards;
     }
+
     header .logo {
       font-size: 1.8em; font-weight: 700;
       background: linear-gradient(90deg, #ff1e1e, #999);
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
       letter-spacing: 1px;
     }
+
     nav ul { list-style: none; display: flex; gap: 30px; align-items: center; }
     nav ul li a {
       position: relative; font-weight: 500; padding: 5px 0;
-      text-decoration: none; /* Remove underline */
       transition: color 0.3s;
     }
 
-    /* Registration button glow and pulse */
+    nav ul li a::after {
+      content: ""; position: absolute; bottom: -5px; left: 0; width: 0;
+      height: 2px; background: #ff1e1e; transition: width 0.3s;
+    }
+
+    nav ul li a:hover::after { width: 100%; }
+
     .register-btn a {
       background: linear-gradient(90deg, #ff1e1e, #b50000);
       color: #fff; padding: 10px 22px; border-radius: 30px; font-weight: 600;
@@ -43,69 +70,124 @@
       box-shadow: 0 0 30px rgba(255, 30, 30, 0.7);
     }
 
-    /* Background Guide button */
-    .bg-btn a {
-      background: linear-gradient(90deg, #ff1e1e, #b50000);
-      color: #fff; padding: 14px 28px; border-radius: 30px; font-weight: 600;
-      font-size: 1.1em; box-shadow: 0 0 20px rgba(255, 30, 30, 0.5);
-      transition: transform 0.3s, box-shadow 0.3s;
-      text-align: center;
-    }
-    .bg-btn a:hover {
-      transform: translateY(-2px) scale(1.03);
-      box-shadow: 0 0 30px rgba(255, 30, 30, 0.7);
+    .hero {
+      height: 90vh;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      position: relative; text-align: center; overflow: hidden;
     }
 
-    @keyframes pulse {
-      0% { box-shadow: 0 0 15px rgba(255,30,30,0.5); }
-      50% { box-shadow: 0 0 35px rgba(255,30,30,0.9); }
-      100% { box-shadow: 0 0 15px rgba(255,30,30,0.5); }
-    }
-
-    .hero { height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; text-align: center; overflow: hidden; }
     .hero::before {
       content: ""; position: absolute; inset: 0;
       background: url('image (1).png') center/cover no-repeat;
-      opacity: 0.75; z-index: 0;
-      filter: grayscale(43%);
+      opacity: 0.7; z-index: 0;
+      animation: slowPan 25s linear infinite;
+      filter: grayscale(35%) brightness(0.7);
     }
-    .hero h1 { font-size: 3.5em; font-family: "Libre Baskerville", serif; color: #eee; margin-bottom: 15px; z-index: 1; animation: fadeInDown 1s ease forwards; }
-    .hero p { font-size: 1.2em; color: #fff; z-index: 1; animation: fadeInUp 1s ease forwards; max-width: 700px; }
 
-    section { padding: 100px 60px; }
-    section h2 { text-align: center; color: #ddd; font-size: 2.4em; margin-bottom: 40px; position: relative; }
-    section h2::after { content: ""; position: absolute; width: 70px; height: 3px; background: #ff1e1e; bottom: -10px; left: 50%; transform: translateX(-50%); }
-
-    .eb-section img {
-      width: 320px; height: 320px; border-radius: 20px; object-fit: cover;
-      border: 2px solid rgba(255,255,255,0.2); box-shadow: 0 0 25px rgba(255,30,30,0.3); transition: transform 0.3s ease;
+    .hero h1 {
+      font-size: 3.8em; font-family: "Libre Baskerville", serif; color: #eee;
+      margin-bottom: 15px; z-index: 2;
+      animation: fadeInDown 1s ease forwards;
+      text-shadow: 0 0 20px rgba(255, 30, 30, 0.4);
     }
-    .eb-section img:hover { transform: scale(1.03); }
-    .eb-info { max-width: 600px; color: #ccc; }
-    .eb-info h3 { color: #ff1e1e; font-size: 1.8em; margin-bottom: 10px; }
-    .eb-info p { line-height: 1.7; margin-bottom: 15px; }
 
-    .eb-card {display: flex; align-items: center; justify-content: center; gap: 50px; flex-wrap: wrap; margin-top: 80px; padding:10px}
+    .hero p {
+      font-size: 1.3em; color: #fff; z-index: 2;
+      animation: fadeInUp 1s ease forwards;
+      max-width: 700px;
+    }
 
-    .btn-container { display: flex; flex-direction: column; align-items: center; gap: 20px; margin-top: 60px; }
+    section { padding: 120px 60px; position: relative; overflow: hidden; }
+    section h2 {
+      text-align: center; color: #ddd; font-size: 2.6em; margin-bottom: 60px; position: relative;
+      animation: fadeInDown 1.2s ease;
+    }
 
-    footer { text-align: center; padding: 25px; background: #080808; color: #666; font-size: 0.9em; border-top: 1px solid rgba(255,255,255,0.1); }
+    section h2::after {
+      content: ""; position: absolute; width: 80px; height: 3px; background: #ff1e1e;
+      bottom: -12px; left: 50%; transform: translateX(-50%);
+      box-shadow: 0 0 15px rgba(255, 30, 30, 0.6);
+    }
+
+    .eb-section {
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 90px;
+    }
+
+    .eb-card {
+      display: flex; align-items: center; justify-content: center; gap: 60px; flex-wrap: wrap;
+      opacity: 0; transform: scale(0.95) translateY(40px); transition: all 1s ease;
+      background: radial-gradient(circle at 30% 20%, rgba(255,30,30,0.08), rgba(20,20,20,0.8));
+      padding: 50px; border-radius: 25px;
+      box-shadow: 0 0 60px rgba(255, 30, 30, 0.1);
+      position: relative; overflow: hidden; z-index: 1;
+    }
+
+    .eb-card::before {
+      content: ""; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+      background: radial-gradient(circle, rgba(255,0,0,0.15) 0%, transparent 70%);
+      opacity: 0; transition: opacity 0.6s ease; transform: rotate(45deg);
+    }
+
+    .eb-card.show { opacity: 1; transform: scale(1) translateY(0); }
+
+    .eb-card:hover::before {
+      opacity: 1; animation: glowSweep 4s linear infinite;
+    }
+
+    .eb-card img {
+      width: 330px; height: 330px; border-radius: 25px; object-fit: cover;
+      border: 2px solid rgba(255,255,255,0.2);
+      box-shadow: 0 0 35px rgba(255,30,30,0.3);
+      transition: transform 0.6s ease, box-shadow 0.6s ease;
+      cursor: pointer; z-index: 2;
+    }
+
+    .eb-card img:hover {
+      transform: scale(1.08) rotate(1deg);
+      box-shadow: 0 0 70px rgba(255,30,30,0.9);
+    }
+
+    .eb-info { max-width: 600px; color: #ccc; z-index: 2; }
+    .eb-info h3 { color: #ff1e1e; font-size: 2em; margin-bottom: 15px; letter-spacing: 0.5px; text-shadow: 0 0 25px rgba(255,30,30,0.6); }
+    .eb-info p { line-height: 1.7; margin-bottom: 15px; font-size: 1.1em; transition: transform 0.3s ease; }
+    .eb-info p:hover { transform: translateX(5px); }
+
+    .btn-container { display: flex; flex-direction: column; align-items: center; gap: 20px; margin-top: 80px; }
+    .bg-btn a {
+      background: linear-gradient(90deg, #ff1e1e, #b50000);
+      color: #fff; padding: 15px 35px; border-radius: 30px; font-weight: 600;
+      font-size: 1.2em; box-shadow: 0 0 20px rgba(255, 30, 30, 0.5);
+      transition: transform 0.4s, box-shadow 0.4s;
+    }
+    .bg-btn a:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 0 35px rgba(255, 30, 30, 0.8); }
+
+    footer {
+      text-align: center; padding: 25px; background: #080808; color: #666; font-size: 0.9em;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
 
     @keyframes fadeInUp { from {opacity: 0; transform: translateY(40px);} to {opacity: 1; transform: translateY(0);} }
     @keyframes fadeInDown { from {opacity: 0; transform: translateY(-40px);} to {opacity: 1; transform: translateY(0);} }
+    @keyframes pulse { 0%{box-shadow:0 0 15px rgba(255,30,30,0.5);}50%{box-shadow:0 0 35px rgba(255,30,30,0.9);}100%{box-shadow:0 0 15px rgba(255,30,30,0.5);} }
+    @keyframes slowPan { 0%{background-position:center;} 100%{background-position:80% 50%;} }
+    @keyframes slideDown { from{transform:translateY(-100%);} to{transform:translateY(0);} }
+    @keyframes glowSweep { 0% { transform: rotate(45deg) translate(-50%, -50%); } 100% { transform: rotate(45deg) translate(50%, 50%); } }
 
     @media (max-width: 768px) {
       header { padding: 15px 25px; }
       .hero h1 { font-size: 2.6em; }
       section { padding: 70px 30px; }
-      .eb-section { flex-direction: column; }
-      .eb-section img { width: 260px; height: 260px; }
+      .eb-card { flex-direction: column; gap: 30px; padding: 30px; }
+      .eb-card img { width: 260px; height: 260px; }
       .bg-btn a { padding: 12px 24px; font-size: 1em; }
     }
   </style>
 </head>
 
 <body>
+  <div class="particles-container" id="particles"></div>
+
   <header>
     <div class="logo">HCC | Harvest MUN 2025</div>
     <nav>
@@ -114,7 +196,9 @@
         <li><a href="index.html#committees">Committees</a></li>
         <li><a href="index.html#about">About</a></li>
         <li><a href="index.html#contact">Contact</a></li>
-        <li class="register-btn"><a href="https://docs.google.com/document/d/1ALvlawvOBQtpu9ZYa0bki2A7nvFqrixD4MSxKT0GVx8/edit?tab=t.0" target="_blank">Registrations</a></li>
+        <li class="register-btn">
+          <a href="https://docs.google.com/document/d/1ALvlawvOBQtpu9ZYa0bki2A7nvFqrixD4MSxKT0GVx8/edit?tab=t.0" target="_blank">Registrations</a>
+        </li>
       </ul>
     </nav>
   </header>
@@ -123,56 +207,34 @@
     <h1>Historical Crisis Committee</h1>
     <p>Agenda: Battle of Petrograd (Freeze date: October 10th 1919).</p>
   </section>
-  
+
   <section>
-    <h2>Executive Board Member</h2>
+    <h2>Executive Board Members</h2>
     <div class="eb-section">
       <div class="eb-card">
-      <img src="" alt="EB Member Photo">
-      <div class="eb-info">
-        <h3>Chairperson</h3>
-        <p>
-          Ishanvi
-
-        </p>
-        <p>
-         No idea
-        </p>
-      </div>
+        <img src="" alt="Chairperson Photo">
+        <div class="eb-info">
+          <h3>Chairperson</h3>
+          <p>Ishanvi — A poised and perceptive leader, known for her exceptional composure and analytical mindset, ready to steer the HCC through every diplomatic challenge.</p>
+        </div>
       </div>
 
       <div class="eb-card">
-      <img src="" alt="EB Member Photo"> 
-      <div class="eb-info">
-        <h3>Co-Chairperson</h3>
-        <p>
-        Arjun is a senior at Harvest High School and has been an active participant in Model United Nations
-        for the past four years. He has represented his school at various national and international conferences,
-        earning accolades for her exceptional debating skills and diplomatic acumen. As Chairperson of the HCC,
-        Arjun is committed to fostering an inclusive and engaging environment where delegates can thrive and 
-        develop their skills.
-        </p>
-        <p>
-          His dedication to Model United Nations reflects not just skill, but a true love for 
-          dialogue, collaboration, and the spirit of global governance. With her at the helm, the 
-          HCC promises to be a space of insight, diplomacy, and intellectual rigor.
-        </p>
-      </div>
+        <img src="sahil.png" alt="Co-Chairperson Photo">
+        <div class="eb-info">
+          <h3>Co-Chairperson</h3>
+          <p>Arjun — A senior at Harvest High School, an active participant in MUNs for four years, known for his sharp articulation and inclusive leadership.</p>
+        </div>
       </div>
 
       <div class="eb-card">
-      <img src="" alt="EB Member Photo">
-      <div class="eb-info">
-        <h3>Moderator</h3>
-        <p>
-          Sahil 
-        </p>
-        <p>
-       No idea
-        </p>
+        <img src="hcc_mod.png" alt="Moderator Photo">
+        <div class="eb-info">
+          <h3>Moderator</h3>
+          <p>Sahil Agrawal is a highly experienced MUN enthusiast known for his sharp intellect, confident diplomacy, and strong leadership skills. With years of experience in various committees, he has developed a deep understanding of global affairs and excels at articulating complex ideas with clarity and charisma. Beyond the committee room, Sahil is just a really cool individual, admired for his calm demeanor and sense of humor. As a passionate basketball player, he brings the same teamwork, strategy, and determination from the court into every challenge he faces. Sahil truly embodies intellect, versatility, and effortless charm like no other.</p>
+          <p>“I'm so upset my barber said he can't cut my hair any longer. He can only cut it shorter.”</p>
+        </div>
       </div>
-      </div>
-
     </div>
 
     <div class="btn-container">
@@ -183,5 +245,42 @@
   </section>
 
   <footer>© 2025 Harvest International MUN Conference</footer>
+
+  <audio id="hoverSound" src="https://cdn.pixabay.com/download/audio/2022/10/19/audio_f03a55ed22.mp3?filename=cinematic-whoosh-14547.mp3" preload="auto"></audio>
+
+  <script>
+    const particlesContainer = document.getElementById('particles');
+    const numParticles = 40;
+    for (let i = 0; i < numParticles; i++) {
+      const p = document.createElement('div');
+      p.classList.add('particle');
+      p.style.left = Math.random() * 100 + "%";
+      p.style.bottom = Math.random() * 100 + "%";
+      const size = 2 + Math.random() * 4;
+      p.style.width = size + "px";
+      p.style.height = size + "px";
+      p.style.animationDuration = 8 + Math.random() * 12 + "s";
+      p.style.animationDelay = Math.random() * 5 + "s";
+      particlesContainer.appendChild(p);
+    }
+
+    const cards = document.querySelectorAll('.eb-card');
+    const revealOnScroll = () => {
+      cards.forEach(card => {
+        const rect = card.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) card.classList.add('show');
+      });
+    };
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll();
+
+    const hoverSound = document.getElementById('hoverSound');
+    cards.forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        hoverSound.currentTime = 0;
+        hoverSound.play();
+      });
+    });
+  </script>
 </body>
 </html>
