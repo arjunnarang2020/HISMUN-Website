@@ -33,16 +33,28 @@
       transition: color 0.3s;
     }
 
-    .register-btn a {
-      background: linear-gradient(90deg, #ff1e1e, #b50000);
-      color: #fff; padding: 10px 22px; border-radius: 30px; font-weight: 600;
-      box-shadow: 0 0 15px rgba(255, 30, 30, 0.4);
-      transition: transform 0.3s, box-shadow 0.3s;
+      .register-btn a {  
+      background: linear-gradient(90deg, #ff1e1e, #b50000);  
+      color: #fff;  
+      padding: 10px 22px;  
+      border-radius: 30px;  
+      font-weight: 600;  
+      transition: transform 0.3s ease, box-shadow 0.3s ease;  
+      box-shadow: 0 0 15px rgba(255, 30, 30, 0.4);  
+      position: relative;  
+    }  
+    .register-btn a::after {  
+      content: none;
+    }  
+    .register-btn a:hover {  
+      animation: pulseGlow 1.5s infinite;  
+      transform: translateY(-2px);  
     }
-    .register-btn a:hover {
-      animation: pulse 1s infinite;
-      transform: translateY(-2px);
-      box-shadow: 0 0 30px rgba(255, 30, 30, 0.7);
+
+    @keyframes pulseGlow {  
+      0% { box-shadow: 0 0 15px rgba(255, 30, 30, 0.4); }  
+      50% { box-shadow: 0 0 30px rgba(255, 30, 30, 0.7); }  
+      100% { box-shadow: 0 0 15px rgba(255, 30, 30, 0.4); }  
     }
 
 
@@ -129,9 +141,34 @@
       border: 2px solid rgba(255,255,255,0.2); box-shadow: 0 0 25px rgba(255,30,30,0.3); transition: transform 0.3s ease;
     }
     .eb-section img:hover { transform: scale(1.03); }
-    .res { max-width: 600px; color: #ccc; }
-    .res h3 { color: #ff1e1e; font-size: 1.8em; margin-bottom: 10px; }
-    .res p { line-height: 1.7; margin-bottom: 15px; }
+    .itinarary { 
+      display: flex;
+      flex-direction: column; 
+      justify-content: justify;
+      flex-wrap:wrap;
+      margin: 20px auto 0 auto;
+      gap: 40px; 
+    }
+
+    .day {
+      max-width: 600px;
+      flex: 1;
+      min-width: 200px;
+      padding: 20px;
+      border-radius: 12px;
+      color: #ccc;
+      margin: 0 auto 40px auto;
+      background: #111;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .day h3 {
+      color: #ff1e1e; 
+      text-align: center;
+      font-size: 1.8em; 
+      margin-bottom: 10px; 
+    }
+    .day p { line-height: 1.7; margin-bottom: 15px; }
 
     .eb-card {display: flex; align-items: center; justify-content: center; gap: 50px; flex-wrap: wrap; margin-top: 80px; padding:10px}
 
@@ -150,6 +187,36 @@
       .eb-section img { width: 260px; height: 260px; }
       .bg-btn a { padding: 12px 24px; font-size: 1em; }
     }
+
+    .committees-grid {  
+      display: grid;  
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));  
+      gap: 40px;  
+    }  
+    .committee-card {  
+      background: #111;  
+      border: 1px solid rgba(255,255,255,0.1);  
+      border-radius: 20px;  
+      padding: 40px 30px;  
+      transition: transform 0.4s, box-shadow 0.4s;  
+      position: relative;  
+      overflow: hidden;  
+      text-align: center;  
+      cursor: pointer;  
+    }  
+    .committee-card:hover {  
+      transform: translateY(-10px);  
+      box-shadow: 0 10px 25px rgba(255, 30, 30, 0.3);  
+    }  
+    .committee-card h3 {  
+      font-size: 1.8em;  
+      color: #ff1e1e;  
+      margin-bottom: 10px;  
+    }  
+    .committee-card p {  
+      color: #bbb;  
+      line-height: 1.6;  
+    } 
   </style>
 </head>
 
@@ -160,6 +227,7 @@
       <ul>
         <li><a href="index.html#home">Home</a></li>
         <li><a href="index.html#committees">Committees</a></li>
+        <li><a href="DelegateResources.html">Delegate Resources</a></li>
         <li><a href="index.html#about">About</a></li>
         <li><a href="index.html#contact">Contact</a></li>
         <li class="register-btn"><a href="https://docs.google.com/document/d/1ALvlawvOBQtpu9ZYa0bki2A7nvFqrixD4MSxKT0GVx8/edit?tab=t.0" target="_blank">Registrations</a></li>
@@ -167,70 +235,122 @@
     </nav>
   </header>
 
+
+
   <section class="hero">
     <h1>Delegate Resources</h1>
   </section>
-  
+
   <section>
     <h2>Itinerary</h2>
-    <div class="res">
-      <div class="res">
+      <div class="itinarary">
+        <div class="day">
         <h3>Day 1</h3>
-        <p>
-          1
-          2
-          3
-          4
-          5
-        </p>
-    
-      <div class="res">
-        <h3>Day 2</h3>
-        <p>
-          1
-          2
-          3
-          4
-          5
-
-        </p>
-        <h3>Day 3</h3>
-        <p>
-         1
-         2
-         3
-         4
-         5
-        </p>
-      </div>
-      </div>
-    </div>
-
-    <section>
-        <div>
-        <h2>Committee Matrix</h2>
-        <bg-btn class="bg-btn"><a href="https://docs.google.com/spreadsheets/d/1sMbihyyDWwv_p3M8VlnLMLilQvN9BWY-DDwQ_P2qzAk/edit?usp=sharing" target="_blank">Committee Matrix</a></bg-btn>
-         
-        <h2>Background Guides</h2>
-        <bg-btn class="del-bg" centre-align><a href="https://docs.google.com/document/d/1QlUz2ky0hTAQKT_4BeFipvzVntK-Q6l00ObyO4K5gg0/edit?tab=t.0" target="_blank">UNSC Background Guide</a></bg-btn>
-        <bg-btn class="del-bg" centre-align><a href="" target="_blank">DISEC Background Guide</a></bg-btn>
-        <bg-btn class="del-bg" centre-align><a href="" target="_blank">HCC Background Guide</a></bg-btn>
-        <bg-btn class="del-bg" centre-align><a href="" target="_blank">AIPPM Background Guide</a></bg-btn>
+        <ul>
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+          <li>4</li>
+          <li>5</li>
+        </ul>
         </div>
+    
+        <div class="day">
+        <h3>Day 2</h3>
+        <ul>
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+          <li>4</li>
+          <li>5</li>
+        </div>
+
+        <div class="day">
+        <h3>Day 3</h3>
+        <ul>
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+          <li>4</li>
+          <li>5</li>
+        </div>
+      </div>
+    </section>
+
+  <section id="committees">  
+    <h2>Background Guides</h2>  
+    <div class="committees-grid">  
+      <a href="https://docs.google.com/document/d/1QlUz2ky0hTAQKT_4BeFipvzVntK-Q6l00ObyO4K5gg0/edit?tab=t.0" class="committee-card"> 
+        <h3>UNSC</h3> 
+        <p>Address the rapid escalation in the Afghan region and alter history doing so.</p> 
+      </a> 
+      <a href="https://docs.google.com/document/d/1QlUz2ky0hTAQKT_4BeFipvzVntK-Q6l00ObyO4K5gg0/edit?tab=t.0" class="committee-card"> 
+        <h3>HCC</h3> 
+        <p>Relive the Battle of Petrograd and change history with strategy.</p> 
+      </a> 
+      <a href="https://docs.google.com/document/d/1QlUz2ky0hTAQKT_4BeFipvzVntK-Q6l00ObyO4K5gg0/edit?tab=t.0" class="committee-card"> 
+        <h3>DISEC</h3> 
+        <p>Discuss the role of nuclear weapons in global security.</p> 
+      </a> 
+      <a href="https://docs.google.com/document/d/1QlUz2ky0hTAQKT_4BeFipvzVntK-Q6l00ObyO4K5gg0/edit?tab=t.0" class="committee-card"> 
+        <h3>AIPPM</h3> 
+        <p>Engage in conversations on left-wing extremism & national integration.</p> 
+      </a> 
+      <a href="https://docs.google.com/document/d/1QlUz2ky0hTAQKT_4BeFipvzVntK-Q6l00ObyO4K5gg0/edit?tab=t.0" class="committee-card"> 
+        <h3>IPC</h3> 
+        <p>Report, analyze, and influence global debates through the eyes of the media.</p> 
+      </a> 
+    </div>  
+  </section>  
+  
+
+
+    <section>
+      <h2>Committee Matrix</h2>
+       <div class="committees-grid">  
+      <a href="https://docs.google.com/spreadsheets/d/1sMbihyyDWwv_p3M8VlnLMLilQvN9BWY-DDwQ_P2qzAk/edit?usp=sharing" class="committee-card"> 
+        <h3>UNSC</h3> 
+        <p>Address the rapid escalation in the Afghan region and alter history doing so.</p> 
+      </a>
+      <a href="https://docs.google.com/spreadsheets/d/1sMbihyyDWwv_p3M8VlnLMLilQvN9BWY-DDwQ_P2qzAk/edit?usp=sharing" class="committee-card"> 
+        <h3>HCC</h3> 
+        <p>Relive the Battle of Petrograd and change history with strategy.</p>
+      </a> 
+      <a href="https://docs.google.com/spreadsheets/d/1sMbihyyDWwv_p3M8VlnLMLilQvN9BWY-DDwQ_P2qzAk/edit?usp=sharing" class="committee-card"> 
+        <h3>DISEC</h3> 
+        <p>Discuss the role of nuclear weapons in global security.</p>
+      </a> 
+      <a href="https://docs.google.com/spreadsheets/d/1sMbihyyDWwv_p3M8VlnLMLilQvN9BWY-DDwQ_P2qzAk/edit?usp=sharing" class="committee-card"> 
+        <h3>AIPPM</h3> 
+        <p>Engage in conversations on left-wing extremism & national integration.</p>
+      </a> 
+      <a href="https://docs.google.com/spreadsheets/d/1sMbihyyDWwv_p3M8VlnLMLilQvN9BWY-DDwQ_P2qzAk/edit?usp=sharing" class="committee-card"> 
+        <h3>IPC</h3> 
+        <p>Report, analyze, and influence global debates through the eyes of the media.</p>
+      </a>
     </section>
     </section>
 
     <section>
-        <h2>Delegate Code of Conduct</h2>
-        <bg-btn class="bg-btn"><a href="" target="_blank">Delegate Code of Conduct</a></bg-btn>
-    </section>
+      <h2>Delegate Code of Conduct(Title?)</h2>
+       <div class="committees-grid">  
+      <a href="https://docs.google.com/spreadsheets/d/1sMbihyyDWwv_p3M8VlnLMLilQvN9BWY-DDwQ_P2qzAk/edit?usp=sharing" class="committee-card"> 
+        <h2>Delegate Code of Conduct</h2> 
+        <p>All delegates are expected to adhere to the code of conduct to ensure a respectful
+           and productive environment for all participants.</p> 
+      </a> 
 
-    <section>
-        <h2>Rules of Procedure</h2>
-        <bg-btn class="bg-btn"><a href="" target="_blank">Rules of Procedure</a></bg-btn>
+      <h2>Fill this in with something</h2>
+        <a href="https://docs.google.com" class="committee-card"> 
+        <h2>Rules of Procedure</h2> 
+        <p>The rules of procedure outline the formal guidelines for debate, resolution drafting,
+           and overall structire within the committee sessions.</p>
+      </a>
+      </div>
     </section>
 
   <footer>© 2025 Harvest International MUN Conference</footer>
 </body>
 </html>
-/Sahil is gay/
+<!DOCTYPE html>
+<html lang="en">
