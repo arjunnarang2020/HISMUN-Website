@@ -55,6 +55,11 @@
       100% { box-shadow: 0 0 15px rgba(255, 30, 30, 0.4); }  
     }
 
+    @keyframes floatParticle {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-120vh) scale(0.5); opacity: 0; }
+    }
+
     /* Background Guide button */
     .bg-btn a {
       background: linear-gradient(90deg, #ff1e1e, #b50000);
@@ -124,6 +129,7 @@
 </head>
 
 <body>
+  <div class="particles-container" id="particle"></div>
   <header>
     <div class="logo">UNSC | Harvest MUN 2025</div>
     <nav>
@@ -197,10 +203,10 @@
       <div class="eb-info">
         <h3>Moderator</h3>
         <p>
-          Rando
+          Aarush
         </p>
         <p>
-       No idea
+          --
         </p>
       </div>
       </div>
