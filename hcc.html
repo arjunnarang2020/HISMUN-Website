@@ -5,8 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>HCC | Harvest MUN 2025</title>
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@0;1&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
     body { background: #000; color: #ddd; font-family: "Poppins", sans-serif; overflow-x: hidden; }
@@ -17,7 +15,6 @@
       top: 0; left: 0; width: 100%; height: 100%;
       pointer-events: none; z-index: 0; overflow: hidden;
     }
-
     .particle {
       position: absolute;
       width: 5px; height: 5px;
@@ -25,7 +22,6 @@
       border-radius: 50%;
       animation: floatParticle linear infinite;
     }
-
     @keyframes floatParticle {
       0% { transform: translateY(0) scale(1); opacity: 1; }
       100% { transform: translateY(-120vh) scale(0.5); opacity: 0; }
@@ -39,49 +35,40 @@
       border-bottom: 1px solid rgba(255,255,255,0.1);
       animation: slideDown 1.2s ease forwards;
     }
-
     header .logo {
       font-size: 1.8em; font-weight: 700;
       background: linear-gradient(90deg, #ff1e1e, #999);
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
       letter-spacing: 1px;
     }
-
     nav ul { list-style: none; display: flex; gap: 30px; align-items: center; }
     nav ul li a {
       position: relative; font-weight: 500; padding: 5px 0;
       transition: color 0.3s;
     }
-
     nav ul li a::after {
       content: ""; position: absolute; bottom: -5px; left: 0; width: 0;
       height: 2px; background: #ff1e1e; transition: width 0.3s;
     }
-
     nav ul li a:hover::after { width: 100%; }
 
-      .register-btn a {  
-      background: linear-gradient(90deg, #ff1e1e, #b50000);  
-      color: #fff;  
-      padding: 10px 22px;  
-      border-radius: 30px;  
-      font-weight: 600;  
-      transition: transform 0.3s ease, box-shadow 0.3s ease;  
-      box-shadow: 0 0 15px rgba(255, 30, 30, 0.4);  
-      position: relative;  
-    }  
-    .register-btn a::after {  
-      content: none;
-    }  
-    .register-btn a:hover {  
-      animation: pulseGlow 1.5s infinite;  
-      transform: translateY(-2px);  
+    .register-btn a {
+      background: linear-gradient(90deg, #ff1e1e, #b50000);
+      color: #fff; padding: 10px 22px; border-radius: 30px;
+      font-weight: 600;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 0 15px rgba(255, 30, 30, 0.4);
+      position: relative;
     }
-
-    @keyframes pulseGlow {  
-      0% { box-shadow: 0 0 15px rgba(255, 30, 30, 0.4); }  
-      50% { box-shadow: 0 0 30px rgba(255, 30, 30, 0.7); }  
-      100% { box-shadow: 0 0 15px rgba(255, 30, 30, 0.4); }  
+    .register-btn a::after { content: none; }
+    .register-btn a:hover {
+      animation: pulseGlow 1.5s infinite;
+      transform: translateY(-2px);
+    }
+    @keyframes pulseGlow {
+      0% { box-shadow: 0 0 15px rgba(255, 30, 30, 0.4); }
+      50% { box-shadow: 0 0 30px rgba(255, 30, 30, 0.7); }
+      100% { box-shadow: 0 0 15px rgba(255, 30, 30, 0.4); }
     }
 
     .hero {
@@ -89,7 +76,6 @@
       display: flex; flex-direction: column; justify-content: center; align-items: center;
       position: relative; text-align: center; overflow: hidden;
     }
-
     .hero::before {
       content: ""; position: absolute; inset: 0;
       background: url('image (1).png') center/cover no-repeat;
@@ -97,14 +83,12 @@
       animation: slowPan 25s linear infinite;
       filter: grayscale(35%) brightness(0.7);
     }
-
     .hero h1 {
       font-size: 3.8em; font-family: "Libre Baskerville", serif; color: #eee;
       margin-bottom: 15px; z-index: 2;
       animation: fadeInDown 1s ease forwards;
       text-shadow: 0 0 20px rgba(255, 30, 30, 0.4);
     }
-
     .hero p {
       font-size: 1.3em; color: #fff; z-index: 2;
       animation: fadeInUp 1s ease forwards;
@@ -116,7 +100,6 @@
       text-align: center; color: #ddd; font-size: 2.6em; margin-bottom: 60px; position: relative;
       animation: fadeInDown 1.2s ease;
     }
-
     section h2::after {
       content: ""; position: absolute; width: 80px; height: 3px; background: #ff1e1e;
       bottom: -12px; left: 50%; transform: translateX(-50%);
@@ -127,7 +110,6 @@
       display: flex; flex-direction: column; align-items: center; justify-content: center;
       gap: 90px;
     }
-
     .eb-card {
       display: flex; align-items: center; justify-content: center; gap: 60px; flex-wrap: wrap;
       opacity: 0; transform: scale(0.95) translateY(40px); transition: all 1s ease;
@@ -136,27 +118,24 @@
       box-shadow: 0 0 60px rgba(255, 30, 30, 0.1);
       position: relative; overflow: hidden; z-index: 1;
     }
-
     .eb-card::before {
       content: ""; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
       background: radial-gradient(circle, rgba(255,0,0,0.15) 0%, transparent 70%);
       opacity: 0; transition: opacity 0.6s ease; transform: rotate(45deg);
     }
-
     .eb-card.show { opacity: 1; transform: scale(1) translateY(0); }
-
-    .eb-card:hover::before {
-      opacity: 1; animation: glowSweep 4s linear infinite;
-    }
+    .eb-card:hover::before { opacity: 1; animation: glowSweep 4s linear infinite; }
 
     .eb-card img {
-      width: 330px; height: 330px; border-radius: 25px; object-fit: cover;
+      width: 330px;
+      height: 450px; /* ⬆ increased image height */
+      border-radius: 25px;
+      object-fit: cover;
       border: 2px solid rgba(255,255,255,0.2);
       box-shadow: 0 0 35px rgba(255,30,30,0.3);
       transition: transform 0.6s ease, box-shadow 0.6s ease;
       cursor: pointer; z-index: 2;
     }
-
     .eb-card img:hover {
       transform: scale(1.08) rotate(1deg);
       box-shadow: 0 0 70px rgba(255,30,30,0.9);
@@ -174,7 +153,10 @@
       font-size: 1.2em; box-shadow: 0 0 20px rgba(255, 30, 30, 0.5);
       transition: transform 0.4s, box-shadow 0.4s;
     }
-    .bg-btn a:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 0 35px rgba(255, 30, 30, 0.8); }
+    .bg-btn a:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 0 35px rgba(255, 30, 30, 0.8);
+    }
 
     footer {
       text-align: center; padding: 25px; background: #080808; color: #666; font-size: 0.9em;
@@ -193,7 +175,10 @@
       .hero h1 { font-size: 2.6em; }
       section { padding: 70px 30px; }
       .eb-card { flex-direction: column; gap: 30px; padding: 30px; }
-      .eb-card img { width: 260px; height: 260px; }
+      .eb-card img {
+        width: 260px;
+        height: 350px; /* ⬆ taller for mobile */
+      }
       .bg-btn a { padding: 12px 24px; font-size: 1em; }
     }
   </style>
@@ -201,7 +186,6 @@
 
 <body>
   <div class="particles-container" id="particles"></div>
-
   <header>
     <div class="logo">HCC | Harvest MUN 2025</div>
     <nav>
@@ -220,19 +204,25 @@
 
   <section class="hero">
     <h1>Historical Crisis Committee</h1>
-    <p>Agenda: The Siege of Petrograd: Britain, Estonia, and the Fate of the Revolution (1919)”
-       Freeze Date: 10th October 1919</p>
+    <p>Agenda: The Siege of Petrograd: Britain, Estonia, and the Fate of the Revolution (1919)” Freeze Date: 10th October 1919</p>
   </section>
 
   <section>
     <h2>Executive Board Members</h2>
     <div class="eb-section">
       <div class="eb-card">
-        <img src="" alt="Chairperson Photo">
+        <img src="Arjun.jpeg" alt="Chairperson Photo">
         <div class="eb-info">
           <h3>Chairperson</h3>
           <h2>Arjun Narang</h2>
-          <p>--</p>
+          <p>With experience in over ten Model United Nations conferences, Arjun Narang 
+            brings a wealth of diplomatic and leadership expertise to the Historic Crisis 
+            Committee at Harvest MUN 2025. Known for his analytical approach and confident diplomacy, 
+            he strives to create an immersive and intellectually stimulating 
+            crisis experience. As Chair, he aims to foster meaningful debate, critical 
+            thinking, and creativity among delegates. Arjun believes that every committee 
+            session should not only challenge participants but also inspire them to see 
+            diplomacy through a new lens.</p>
         </div>
       </div>
 
@@ -241,9 +231,18 @@
         <div class="eb-info">
           <h3>Co-Chairperson</h3>
           <h2>Sahil Agrawal</h2>
-          <p>--</p>
+          <p>
+            Sahil Agrawal is a highly experienced MUN enthusiast known for his sharp intellect,
+            confident diplomacy, and strong leadership skills. With years of experience in
+            various committees, he has developed a deep understanding of global affairs and
+            excels at articulating complex ideas with clarity and charisma. Beyond the committee
+            room, Sahil is just a really cool individual, admired for his calm demeanor and sense
+            of humor. As a passionate basketball player, he brings the same teamwork, strategy,
+            and determination from the court into every challenge he faces. Sahil truly embodies
+            intellect, versatility, and effortless charm like no other.
+            “I'm so upset my barber said he can't cut my hair any longer. He can only cut it shorter.”
+          </p>
         </div>
-      </div>
       </div>
     </div>
 
@@ -257,7 +256,6 @@
   <footer>© 2025 Harvest International MUN Conference</footer>
 
   <audio id="hoverSound" src="https://cdn.pixabay.com/download/audio/2022/10/19/audio_f03a55ed22.mp3?filename=cinematic-whoosh-14547.mp3" preload="auto"></audio>
-
   <script>
     const particlesContainer = document.getElementById('particles');
     const numParticles = 40;
