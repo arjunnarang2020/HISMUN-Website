@@ -26,12 +26,48 @@
       -webkit-text-fill-color: transparent;
       letter-spacing: 1px;
     }
-    nav ul { list-style: none; display: flex; gap: 30px; align-items: center; }
-    nav ul li a {
-      position: relative; font-weight: 500; padding: 5px 0;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
+   nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  align-items: center; /* keep items vertically centered */
+  padding: 0;
+  margin: 0;
+}
+
+/* Prevent li from expanding to full width */
+nav ul li {
+  display: inline-block;
+}
+
+/* Make the <a> shrink to the width of the text, no horizontal padding */
+nav ul li a {
+  position: relative;
+  display: inline-block;    /* inline-block keeps width tight to text */
+  font-weight: 500;
+  padding: 5px 0;           /* only vertical padding — avoid horizontal padding */
+  transition: color 0.25s;
+  white-space: nowrap;      /* keep link text on one line */
+}
+
+/* Underline using transform so it matches the a's width exactly */
+nav ul li:not(.register-btn) a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;              /* covers only the anchor's box */
+  height: 2px;
+  background: #ff1e1e;
+  transform: scaleX(0);     /* start hidden */
+  transform-origin: left center;
+  transition: transform 0.25s ease;
+}
+
+/* On hover reveal underline (only under that word) */
+nav ul li:not(.register-btn) a:hover::after {
+  transform: scaleX(1);
+}
 
       .register-btn a {  
       background: linear-gradient(90deg, #ff1e1e, #b50000);  
